@@ -1,0 +1,71 @@
+<div class="container">
+  <form #myform>
+    <div class="form-group">
+      <div class="col-3">
+        <label>Identificador:</label>
+      </div>
+      <div class="col-9">
+        <input type="text" name="custom-id" id="custom-id" #customID class="form-control form-control-lg">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-3">
+        <label>Matricula:</label>
+      </div>
+      <div class="col-9">
+        <input type="text" name="matricula" id="matricula" #matricula class="form-control form-control-lg">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-3">
+        <label>Color:</label>
+      </div>
+      <div class="col-9">
+        <input type="text" name="color" id="color" #color class="form-control form-control-lg">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-3">
+        <label>Modelo:</label>
+      </div>
+      <div class="col-9">
+        <input type="number" name="model" id="model" #model class="form-control form-control-lg">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-3">
+        <label>Motor No:</label>
+      </div>
+      <div class="col-9">
+        <input type="text" name="engineID" id="engineid" #engineID class="form-control form-control-lg">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-3">
+        <label>No de ruedas:</label>
+      </div>
+      <div class="col-9">
+        <input type="number" name="NoWheels" id="NoWheels" #noWheels class="form-control form-control-lg">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-3">
+        <label>Kilometraje:</label>
+      </div>
+      <div class="col-9">
+        <input type="number" name="kilometers" id="kilometers" #kilometers class="form-control form-control-lg">
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="button" value="Demo" (click)="demo()" class="btn btn-outline-primary" />
+    </div>
+    <ul class="list-group">
+      <li *ngFor="let name of info" class="list-group-item">
+        <span class="alert alert-danger"> {{name.nombre}} {{name.apaterno}} {{name.amaterno}}
+          <span class="badge badge-success">{{name.edad}} </span>
+        </span>
+
+      </li>
+    </ul>
+  </form>
+</div>

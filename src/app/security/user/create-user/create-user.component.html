@@ -1,3 +1,40 @@
-<p>
-  create-user works!
-</p>
+<div class="modal fade" bsModal #modalUser="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">{{title}}</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+          <span aria-hidden="true" class="text-white">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formUser" (ngSubmit)="onSubmit(formUser.value)">
+                    <div class="form-group" [ngClass]="{
+                      'has-danger': email.invalid && email.dirty, 
+                      'has-success':email.valid && email.dirty 
+                    }">
+                        <input type="email" formControlName="email" id="emailUser" placeholder="Correo electrónico" class="form-control form-control-lg  mb-2 mr-sm-2" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="password" id="passwordUser" placeholder="Contraseña" class="form-control form-control-lg mb-2 mr-sm-2" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="confirmPassword" id="confirmPassword" placeholder="Confirmar contraseña" class="form-control form-control-lg mb-2 mr-sm-2" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="name" id="name" placeholder="Nombre" class="form-control form-control-lg mb-2 mr-sm-2" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="middleName" id="middleName" placeholder="Apellido paterno" class="form-control form-control-lg mb-2 mr-sm-2" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="lastName" id="lastName" placeholder="Apellido materno" class="form-control form-control-lg mb-2 mr-sm-2" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg" [disabled]="formUser.status==='INVALID'">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

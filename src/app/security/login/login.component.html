@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-xl-4 mt-5">
+            <div class="card border-0 background-none">
+                <div class="container">
+                    <h3 class="text-center p-3 text-white">Iniciar sesión</h3>
+                    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                        <div class="form-group" [ngClass]="{
+              'has-danger': email.invalid && email.dirty, 
+              'has-success':email.valid && email.dirty 
+            }">
+                            <input type="text" formControlName="email" id="email" placeholder="Correo electrónico" class="form-control form-control-lg  mb-2 mr-sm-2" />
+                        </div>
+                        <div class="form-group" [ngClass]="{
+              'has-danger': password.invalid && password.dirty, 
+              'has-success': password.valid && password.dirty 
+            }">
+                            <input type="password" formControlName="password" id="password" placeholder="Contraseña" class="form-control form-control-lg  mb-2 mr-sm-2" />
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-lg width-full" [disabled]="form.status==='INVALID'">Entrar <i aria-hidden="true" *ngIf="loading" class="fa fa-spinner fa-spin"></i></button>
+                        </div>
+                        <div class="form-group">
+                            <span class="text-white float-right">¿No tienes cuenta? <a href="javascript:void(0)" (click)="openModal()" class="text-white"><strong>Registrate aquí</strong></a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-xl-4  mt-5">
+            <alert type="{{message.type}}" dismissOnTimeout="5000" *ngIf="showAlert" class="text-center">
+                <span> <i aria-hidden="true" class="fa fa-smile-o"></i> {{message.message}}.</span>
+            </alert>
+        </div>
+    </div>
+</div>
+<app-create-user #modalUser [title]="'Registrarse'"></app-create-user>
